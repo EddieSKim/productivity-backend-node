@@ -1,14 +1,18 @@
 const express = require("express");
 const todoRouter = express.Router();
+const todoController = require("../controllers/todoController");
 
 // get all todos
-todoRouter.get("/todos", );
+todoRouter.get("/getAllTodos", todoController.getAllTodos);
 
 // add new todo
-todoRouter.post("/todos/addTodo", );
+todoRouter.post("/addTodo", todoController.createTodo);
+
+// update todo
+todoRouter.put("/updateTodo/:id", todoController.updateTodo);
 
 // remove todo
-todoRouter.delete("/todos/removeTodo", );
+todoRouter.delete("/removeTodo/:id", todoController.deleteTodo);
 
 // notify upon reaching date?
 

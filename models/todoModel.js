@@ -1,15 +1,22 @@
+const mongoose = require("mongoose");
 
-
-module.exports = {
-    queryAllTodos: function (callback) {
-
+const todoSchema = new mongoose.Schema({
+    todoItem: {
+        required: true,
+        type: String
     },
-
-    queryCreateTodo: function (callback) {
-
+    dueDate: {
+        required: true,
+        type: Date
     },
-
-    queryDeleteTodo: function (callback) {
-        
+    priority: {
+        required: true,
+        type: Number
+    },
+    isComplete: {
+        required: true,
+        type: Boolean
     }
-}
+})
+
+module.exports = mongoose.model("Todo", todoSchema);
